@@ -6,7 +6,7 @@ const express = require('express');
 const app = express();
 
 
-app.set('views', __dirname + '/components');
+app.set('views', '_components');
 app.set('view engine', 'jsx');
 app.engine('jsx', require('express-react-views').createEngine());
 

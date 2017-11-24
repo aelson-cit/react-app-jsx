@@ -2,9 +2,9 @@
   "name": "app-react-jsx",
   "version": "1.0.0",
   "description": "A jsx React App",
-  "main": "react/app.js",
+  "main": "_server-side/server.js",
   "scripts": {
-    "dev": "nodemon react/app.js"
+    "dev": "nodemon _server-side/server.js"
   },
   "author": "André",
   "license": "ISC",
