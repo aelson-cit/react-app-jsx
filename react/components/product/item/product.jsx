@@ -1,13 +1,18 @@
 const React = require('react');
+const Thumbnail = require('react-bootstrap').Thumbnail;
+const Button = require('react-bootstrap').Button;
 
 class Product extends React.Component {
   render() {
     return (
-      <li key={this.props.item.sku.toString()}>
-        <h1>Product {this.props.item.sku}</h1>
-        <img src={this.props.item.imageSrc} />
-        <h3>Por Apenas {this.props.item.priceInCents}</h3>
-      </li>
+      <Thumbnail src={this.props.item.imageSrc} alt="242x200">
+        <h3>{this.props.item.sku}</h3>
+        <p>{this.props.item.priceInCents}</p>
+        <p>
+          <Button bsStyle="primary">Add to Cart</Button>&nbsp;
+          <Button bsStyle="default">WishList</Button>
+        </p>
+      </Thumbnail>
     );
   }
 }
