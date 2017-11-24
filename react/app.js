@@ -1,55 +1,22 @@
 'use strict';
 
 const React = require('react');
-const Product = require('./components/product.jsx');
 const axios = require('axios');
-const jsx = require('node-jsx');
-const browserify = require('browserify');
 const express = require('express');
+const app = express();
 
-jsx.install();
 
-var app = express();
-
-app.use('/bundle.js', function(req, res) {
-  res.setHeader('content-type', 'application/javascript');
-  browserify('./app.js', {
-    debug: true
-  })
-  .transform('reactify')
-  .bundle()
-  .pipe(res);
-});
+app.set('views', __dirname + '/components');
+app.set('view engine', 'jsx');
+app.engine('jsx', require('express-react-views').createEngine());
 
 app.use('/produtos', function(req, res) {
   let productData;
 
   productData = axios.get('http://localhost:8000/products')
   .then(function (response) {
-    productData = response;
-
     res.setHeader('Content-Type', 'text/html');
-    res.end(React.renderToStaticMarkup(
-        React.DOM.body(
-          null,
-          React.DOM.div({
-            id: 'app',
-            dangerouslySetInnerHTML: {
-              __html: React.renderToString(React.createElement(Product, {
-                product: productData
-              }))
-            }
-          }),
-          React.DOM.script({
-            'id': 'initial-data',
-            'type': 'text/plain',
-            'data-json': JSON.stringify(productData)
-          }),
-          React.DOM.script({
-            src: '/bundle.js'
-          })
-        )
-      ));
+    res.render('product/list/productlist', { list: response.data });
   })
   .catch(function (error) {
     console.log(error);
