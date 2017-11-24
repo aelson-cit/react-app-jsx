@@ -5,6 +5,10 @@ const Grid = require('react-bootstrap').Grid;
 const Col = require('react-bootstrap').Col;
 
 class ProductList extends React.Component {
+  constructor() {
+    super();
+  }
+
   render() {
     const listItems = this.props.list.map((item) => (
       <Col xs={6} md={4}>
