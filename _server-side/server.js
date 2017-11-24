@@ -5,12 +5,13 @@ const axios = require('axios');
 const express = require('express');
 const app = express();
 
+console.log(__dirname + '/_components');
 
-app.set('views', __dirname + '/components');
+app.set('views', __dirname + './../_components');
 app.set('view engine', 'jsx');
 app.engine('jsx', require('express-react-views').createEngine());
 
-app.use('/produtos', function(req, res) {
+app.use('/', function(req, res) {
   let productData;
 
   productData = axios.get('http://localhost:8000/products')
@@ -26,5 +27,5 @@ app.use('/produtos', function(req, res) {
 
 const server = app.listen(3000, () => {
   var addr = server.address();
-  console.log('FREEDOM CODE - REACT @ http://%s:%d', addr.address, addr.port);
+  console.log('FREEDOM CODE - REACT [SERVER SIDE] @ http://%s:%d', addr.address, addr.port);
 });

@@ -2,9 +2,9 @@
   "name": "app-react-jsx",
   "version": "1.0.0",
   "description": "A jsx React App",
-  "main": "react/app.js",
+  "main": "_server-side/server.js",
   "scripts": {
-    "dev": "nodemon react/app.js"
+    "dev": "nodemon _server-side/server.js"
   },
   "author": "André",
   "license": "ISC",
@@ -13,11 +13,15 @@
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
     "express-react-views": "^0.10.4",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.0",
+    "gulp-util": "^3.0.8",
     "react": "^16.1.1",
     "react-bootstrap": "^0.31.5",
     "react-dom": "^16.1.1"
   },
   "devDependencies": {
-    "nodemon": "^1.12.1"
+    "nodemon": "^1.12.1",
+    "webpack": "^3.8.1"
   }
 }
