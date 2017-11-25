@@ -11,16 +11,7 @@ app.set('view engine', 'jsx');
 app.engine('jsx', require('express-react-views').createEngine());
 
 app.use('/', function(req, res) {
-  let productData;
-
-  productData = axios.get('http://localhost:8000/products')
-  .then(function (response) {
-    res.setHeader('Content-Type', 'text/html');
-    res.render('product/list/productlist', { list: response.data });
-  })
-  .catch(function (error) {
-    console.log(error);
-  });
+  // consumir api com axios e renderizar componente
 });
 
 

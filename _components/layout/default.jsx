@@ -10,7 +10,9 @@ class DefaultLayout extends React.Component {
           <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap-theme.min.css" />
           <title>FREEDOM CODE - REACT JSX</title>
         </head>
-        <body>{this.props.children}</body>
+        <body>
+        <div>Olá</div>
+        {this.props.children}</body>
       </html>
     );
   }

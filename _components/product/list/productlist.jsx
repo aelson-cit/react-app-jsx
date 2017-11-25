@@ -10,16 +10,9 @@ class ProductList extends React.Component {
   }
 
   render() {
-    const listItems = this.props.list.map((item) => (
-      <Col xs={6} md={4}>
-        <Product item={item}/>
-      </Col>
-
-    ));
     return (
       <DefaultLayout>
         <Grid>
-          {listItems}
         </Grid>
       </DefaultLayout>
     );
